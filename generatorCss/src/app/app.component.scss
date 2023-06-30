@@ -1,0 +1,28 @@
+section{
+    display: flex;
+    justify-content: space-around;
+    margin: auto;   
+}
+.format{
+    margin-top: 100px;
+    background-color: aliceblue;
+    padding: 10px 30px 30px 30px;
+    border-radius: 5px;
+}
+h2{
+    margin-bottom: 40px;
+    text-align: center;
+}
+section div div{
+    margin-top: 10px;
+    
+}
+input{
+    display: block;
+    margin-bottom: 10px;
+}
+#div{
+    background-color: aqua;
+    height: 50px;
+    text-align: center;
+}
