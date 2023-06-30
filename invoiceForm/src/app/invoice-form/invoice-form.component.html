@@ -1,1 +1,66 @@
-<p>invoice-form works!</p>
+<form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
+   
+    <div formGroupName="issuer">
+      <h3>Dane wystawcy</h3>
+      <input type="text" formControlName="name" placeholder="Nazwa wystawcy">
+      <input type="text" formControlName="city" placeholder="Miasto">
+      <input type="text" formControlName="address" placeholder="Adres">
+      <input type="text" formControlName="postalCode" placeholder="Kod pocztowy">
+      <input type="text" formControlName="nip" placeholder="NIP">
+      <input type="text" formControlName="bankAccount" placeholder="Nr konta bankowego">
+    </div>
+  
+    
+    <div formGroupName="customer">
+      <h3>Dane zamawiającego</h3>
+      <input type="text" formControlName="name" placeholder="Nazwa zamawiającego">
+      <input type="text" formControlName="city" placeholder="Miasto">
+      <input type="text" formControlName="address" placeholder="Adres">
+      <input type="text" formControlName="postalCode" placeholder="Kod pocztowy">
+      <input type="text" formControlName="nip" placeholder="NIP (opcjonalnie)">
+    </div>
+  
+    
+    <h3>Szczegóły faktury</h3>
+    <input type="text" formControlName="invoiceNumber" placeholder="Nr faktury">
+    <input type="date" formControlName="issueDate" placeholder="Data wystawienia">
+    <input type="date" formControlName="saleDate" placeholder="Data sprzedaży">
+    <input type="date" formControlName="paymentDueDate" placeholder="Termin płatności">
+  
+    <select formControlName="paymentMethod">
+      <option value="cash">Gotówka</option>
+      <option value="transfer">Przelew</option>
+      <option value="card">Karta</option>
+    </select>
+  
+   
+    <div formArrayName="invoiceItems">
+      <h3>Pozycje faktury</h3>
+      <div *ngFor="let item of invoiceItems.controls; let i = index" [formGroupName]="i">
+        <input type="text" formControlName="name" placeholder="Nazwa produktu">
+        <input type="number" formControlName="quantity" placeholder="Ilość">
+        <input type="text" formControlName="unit" placeholder="Jednostka miary">
+        <input type="number" formControlName="netPrice" placeholder="Cena netto">
+        <select formControlName="vatRate">
+          <option value="zw">zw</option>
+          <option value="0">0%</option>
+          <option value="5">5%</option>
+          <option value="8">8%</option>
+          <option value="23">23%</option>
+        </select>
+      </div>
+    </div>
+    <button (click)="addItem()">Dodaj pozycję</button>
+  
+
+    <button type="submit">Wyślij</button>
+  </form>
+  
+
+  <div *ngIf="invoiceForm.valid">
+    <h3>Podsumowanie zamówienia</h3>
+    Suma netto: {{ totalNet }}<br>
+    Suma VAT: {{ totalVat }}<br>
+    Suma brutto: {{ totalGross }}
+  </div>
+  

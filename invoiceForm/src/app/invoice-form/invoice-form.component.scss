@@ -1,0 +1,57 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  h3 {
+    margin: 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  input,
+  select,
+  button {
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  button {
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+  
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+  
+  div[formGroupName] {
+    margin-bottom: 20px;
+  }
+  
+
+  div[formGroupName] + div {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  
+    h3 {
+      margin: 0;
+      margin-bottom: 10px;
+      border-bottom: none;
+    }
+  }
+  
