@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-title>Players List</mat-card-title>
+    <mat-table [dataSource]="players" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let player">{{ player.name }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef>Position</mat-header-cell>
+        <mat-cell *matCellDef="let player">{{ player.position }}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="number">
+        <mat-header-cell *matHeaderCellDef>Number</mat-header-cell>
+        <mat-cell *matCellDef="let player">{{ player.number }}</mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let player; columns: displayedColumns;" (click)="viewPlayer(player)"></mat-row>
+    </mat-table>
+  </mat-card>
+  
+

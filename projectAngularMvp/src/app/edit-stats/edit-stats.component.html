@@ -1,0 +1,21 @@
+<mat-card>
+    <mat-card-title>Edit Player Stats</mat-card-title>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Player Name</mat-label>
+      <input matInput [(ngModel)]="player.name">
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Goals</mat-label>
+      <input matInput [(ngModel)]="player.goals" type="number">
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Assists</mat-label>
+      <input matInput [(ngModel)]="player.assists" type="number">
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" (click)="saveStats()">Save</button>
+  </mat-card>
+  
