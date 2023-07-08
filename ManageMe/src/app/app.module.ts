@@ -11,6 +11,18 @@ import { ProjectFormComponent } from './pages/forms/project-form/project-form.co
 import { FeatureFormComponent } from './pages/forms/feature-form/feature-form.component';
 import { TaskFormComponent } from './pages/forms/task-form/task-form.component';
 import { UserFormComponent } from './pages/forms/user-form/user-form.component';
+import { FeatureCreateComponent } from './features/feature-create/feature-create.component';
+import { FeatureEditComponent } from './features/feature-edit/feature-edit.component';
+import { FeatureDetailComponent } from './features/feature-detail/feature-detail.component';
+import { ProjectCreateComponent } from './projects/project-create/project-create.component';
+import { ProjectEditComponent } from './projects/project-edit/project-edit.component';
+import { ProjectDetailComponent } from './projects/project-detail/project-detail.component';
+import { TaskCreateComponent } from './tasks/task-create/task-create.component';
+import { TaskEditComponent } from './tasks/task-edit/task-edit.component';
+import { TaskDetailComponent } from './tasks/task-detail/task-detail.component';
+import { UserCreateComponent } from './users/user-create/user-create.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +34,19 @@ import { UserFormComponent } from './pages/forms/user-form/user-form.component';
     ProjectFormComponent,
     FeatureFormComponent,
     TaskFormComponent,
-    UserFormComponent
+    UserFormComponent,
+    FeatureCreateComponent,
+    FeatureEditComponent,
+    FeatureDetailComponent,
+    ProjectCreateComponent,
+    ProjectEditComponent,
+    ProjectDetailComponent,
+    TaskCreateComponent,
+    TaskEditComponent,
+    TaskDetailComponent,
+    UserCreateComponent,
+    UserEditComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
