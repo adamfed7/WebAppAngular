@@ -1,3 +1,6 @@
+import { Feature } from "./feature.model";
+import { User } from "./user.model";
+
 export class Task {
     constructor(
       public id: number,

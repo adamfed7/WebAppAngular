@@ -1,3 +1,6 @@
+import { Project } from "./project.model";
+import { User } from "./user.model";
+
 export class Feature {
     constructor(
       public id: number,

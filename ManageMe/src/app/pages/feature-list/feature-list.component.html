@@ -1,1 +1,12 @@
-<p>feature-list works!</p>
+<div *ngIf="features.length > 0; else noFeatures">
+    <ul>
+      <li *ngFor="let feature of features">
+        {{ feature.name }}
+        <button (click)="onDeleteFeature(feature.id)">Usuń</button>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noFeatures>
+    <p>Nie ma żadnych funkcjonalności.</p>
+  </ng-template>
+  

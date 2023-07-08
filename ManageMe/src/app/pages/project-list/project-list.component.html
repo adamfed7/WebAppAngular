@@ -1,1 +1,12 @@
-<p>project-list works!</p>
+<div *ngIf="projects.length > 0; else noProjects">
+    <ul>
+      <li *ngFor="let project of projects">
+        {{ project.name }}
+        <button (click)="onDeleteProject(project.id)">Usuń</button>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noProjects>
+    <p>Nie ma żadnych projektów.</p>
+  </ng-template>
+  

@@ -1,1 +1,11 @@
-<p>user-list works!</p>
+<div *ngIf="users.length > 0; else noUsers">
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.firstName }} {{ user.lastName }}
+        <button (click)="onDeleteUser(user.id)">Usuń</button>
+      </li>
+    </ul>
+  </div>
+  <ng-template #noUsers>
+    <p>Nie ma żadnych użytkowników.</p>
+  </ng-template>
