@@ -132,10 +132,20 @@ export class DataService {
   getFunctionalities(projectName: string): Functionality[] {
     return this.functionalities.filter((func) => func.project.name === projectName);
   }
-  
 
+  getFunctionality(name: string): Functionality | undefined{
+    return this.functionalities.find(
+      (functionality) => functionality.name === name
+    );
+  }
+  
   getTask(name: string): Task | undefined {
     return this.tasks.find((task) => task.name === name);
   }
+  
+  getTasks(functionalityName: string): Task[] {
+    return this.tasks.filter((task) => task.functionality.name === functionalityName);
+  }
+  
 }
 
