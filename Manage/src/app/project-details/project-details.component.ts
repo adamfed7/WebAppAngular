@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../data-service.service';
 import { Project } from '../models/project.model';
+import { Functionality } from '../models/functionality.model';
 
 @Component({
   selector: 'app-project-details',
@@ -9,17 +10,20 @@ import { Project } from '../models/project.model';
   styleUrls: ['./project-details.component.scss']
 })
 export class ProjectDetailsComponent implements OnInit {
-  project: Project | undefined = undefined;;
+  project: Project | undefined = undefined;
+  functionalities: Functionality[] = [];
 
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
+    
   ) {}
 
   ngOnInit(): void {
     const projectName = this.route.snapshot.paramMap.get('name');
     if (projectName !== null) {
       this.project = this.dataService.getProject(projectName);
+      this.functionalities = this.dataService.getFunctionalities(projectName);
     }
   }
 }

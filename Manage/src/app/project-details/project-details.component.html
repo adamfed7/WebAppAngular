@@ -1,5 +1,12 @@
 <div *ngIf="project">
     <h2>{{ project.name }}</h2>
     <p>{{ project.description }}</p>
-</div>
+    
+    <h3>Funkcjonalności:</h3>
+    <ul>
+      <li *ngFor="let functionality of functionalities">
+        {{ functionality.name }}
+      </li>
+    </ul>
+  </div>
   
