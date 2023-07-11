@@ -127,6 +127,7 @@ export class DataService {
   getProject(name: string): Project | undefined{
     return this.projects.find((project) => project.name === name);
   }
+  
 
   getFunctionality(name: string): Functionality | undefined{
     return this.functionalities.find(
