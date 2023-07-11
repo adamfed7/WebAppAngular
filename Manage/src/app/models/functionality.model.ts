@@ -10,7 +10,7 @@ export enum Status {
   export interface Functionality {
     name: string;
     description: string;
-    priority: number;
+    priority: string;
     project: Project;
     user: User;
     status: Status;
