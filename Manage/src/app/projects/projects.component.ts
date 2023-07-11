@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data-service.service';
 import { Project } from '../models/project.model';
 
 @Component({
@@ -7,16 +8,13 @@ import { Project } from '../models/project.model';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
+  projects: Project[] = [];
 
-  projects: Project[] = [{
-    name: 'Default Project',
-    description: 'This is a default project'
-  }];
-
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.projects = this.dataService.getProjects();
   }
-
 }
+
 

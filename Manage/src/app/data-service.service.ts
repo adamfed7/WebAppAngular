@@ -12,8 +12,8 @@ export class DataService {
 
   private projects: Project[] = [
     {
-      name: 'Default Project',
-      description: 'This is a default project',
+      name: 'Projekt Angular',
+      description: 'To bedzie projekt na zaliczenie',
     },
   ];
 
