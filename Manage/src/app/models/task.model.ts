@@ -1,3 +1,6 @@
+import { Functionality, Status } from "./functionality.model";
+import { User } from "./user.model";
+
 export interface Task {
     name: string;
     description: string;
