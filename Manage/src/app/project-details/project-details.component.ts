@@ -10,8 +10,8 @@ import { Functionality } from '../models/functionality.model';
   styleUrls: ['./project-details.component.scss']
 })
 export class ProjectDetailsComponent implements OnInit {
-  project: Project | undefined = undefined;
-  functionalities: Functionality[] = [];
+  project: Project | undefined;
+  functionalities: Functionality[] | undefined;
 
   constructor(
     private dataService: DataService,
@@ -20,10 +20,11 @@ export class ProjectDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const projectName = this.route.snapshot.paramMap.get('name');
+    const projectName = this.route.snapshot.paramMap.get('projectName');
     if (projectName !== null) {
       this.project = this.dataService.getProject(projectName);
       this.functionalities = this.dataService.getFunctionalities(projectName);
+      console.log(this.project, this.functionalities);
     }
   }
 }

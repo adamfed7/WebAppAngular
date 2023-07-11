@@ -8,9 +8,9 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
 const routes: Routes = [
   { path: '', redirectTo: '/projects', pathMatch: 'full' },
   { path: 'projects', component: ProjectsComponent },
-  { path: 'projects/:name', component: ProjectDetailsComponent },
-  { path: 'functionalities/:name', component: FunctionalityDetailsComponent },
-  { path: 'projects/:id/functionality/:id/task/:id', component: TaskDetailsComponent },
+  { path: 'projects/:projectName', component: ProjectDetailsComponent },
+  { path: 'projects/:projectName/functionalities/:functionalityName', component: FunctionalityDetailsComponent },
+  { path: 'projects/:projectName/functionalities/:functionalityName/tasks/:taskName', component: TaskDetailsComponent },
 ];
 
 @NgModule({

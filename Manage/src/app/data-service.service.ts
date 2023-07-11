@@ -126,11 +126,13 @@ export class DataService {
 
   getProject(name: string): Project | undefined{
     return this.projects.find((project) => project.name === name);
+    
   }
   
 
   getFunctionalities(projectName: string): Functionality[] {
     return this.functionalities.filter((func) => func.project.name === projectName);
+    
   }
 
   getFunctionality(name: string): Functionality | undefined{
