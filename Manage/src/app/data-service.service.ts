@@ -50,7 +50,7 @@ export class DataService {
       description: 'Formularz powinien zawierać pola: imię, nazwisko, email i hasło',
       priority: 'Wysoki',
       functionality: this.functionalities[0],
-      estimatedTime: 2,
+      estimatedTime: '2',
       status: Status.TODO,
       addedAt: new Date(),
       user: this.user,
@@ -60,7 +60,7 @@ export class DataService {
       description: 'Wszystkie pola w formularzu rejestracji powinny być walidowane',
       priority: 'Wysoki',
       functionality: this.functionalities[0],
-      estimatedTime: 3,
+      estimatedTime: '3',
       status: Status.TODO,
       addedAt: new Date(),
       user: this.user,
@@ -70,7 +70,7 @@ export class DataService {
       description: 'Formularz logowania powinien być połączony z backendem, aby umożliwić użytkownikom logowanie',
       priority: 'Wysoki',
       functionality: this.functionalities[1],
-      estimatedTime: 1,
+      estimatedTime: '1',
       status: Status.TODO,
       addedAt: new Date(),
       user: this.user,
@@ -80,7 +80,7 @@ export class DataService {
       description: 'Interfejs formularza logowania powinien być przyjazny dla użytkownika',
       priority: 'Średni',
       functionality: this.functionalities[1],
-      estimatedTime: 2,
+      estimatedTime: '2',
       status: Status.TODO,
       addedAt: new Date(),
       user: this.user,
@@ -90,7 +90,7 @@ export class DataService {
       description: 'Użytkownicy powinni być w stanie dodawać nowe zadania do systemu',
       priority: 'Średni',
       functionality: this.functionalities[2],
-      estimatedTime: 1.5,
+      estimatedTime: '1.5',
       status: Status.TODO,
       addedAt: new Date(),
       user: this.user,
@@ -100,7 +100,7 @@ export class DataService {
       description: 'Użytkownicy powinni być w stanie usuwać zadania',
       priority: 'Średni',
       functionality: this.functionalities[2],
-      estimatedTime: 1,
+      estimatedTime: '1',
       status: Status.TODO,
       addedAt: new Date(),
       user: this.user,
@@ -110,7 +110,7 @@ export class DataService {
       description: 'Użytkownicy powinni być w stanie aktualizować istniejące zadania',
       priority: 'Średni',
       functionality: this.functionalities[2],
-      estimatedTime: 1.5,
+      estimatedTime: '1.5',
       status: Status.TODO,
       addedAt: new Date(),
       user: this.user,
@@ -126,13 +126,11 @@ export class DataService {
 
   getProject(name: string): Project | undefined{
     return this.projects.find((project) => project.name === name);
-    
   }
   
 
   getFunctionalities(projectName: string): Functionality[] {
     return this.functionalities.filter((func) => func.project.name === projectName);
-    
   }
 
   getFunctionality(name: string): Functionality | undefined{
@@ -140,6 +138,16 @@ export class DataService {
       (functionality) => functionality.name === name
     );
   }
+  updateFunctionality(name: string, updatedFunctionality: Functionality): void {
+    const index = this.functionalities.findIndex(functionality => functionality.name === name);
+
+    if (index !== -1) {
+      this.functionalities[index] = updatedFunctionality;
+    } else {
+      console.error(`Functionality with name ${name} not found`);
+    }
+}
+
   
   getTask(name: string): Task | undefined {
     return this.tasks.find((task) => task.name === name);
@@ -148,6 +156,24 @@ export class DataService {
   getTasks(functionalityName: string): Task[] {
     return this.tasks.filter((task) => task.functionality.name === functionalityName);
   }
+
+  updateTask(name: string, newData: Task): void {
+    const taskIndex = this.tasks.findIndex(task => task.name === name);
   
+    if (taskIndex !== -1) {
+      this.tasks[taskIndex] = {...this.tasks[taskIndex], ...newData};
+  
+      const functionality = this.tasks[taskIndex].functionality;
+      const functionalityTasks = this.tasks.filter(task => task.functionality === functionality);
+      
+      if (functionalityTasks.every(task => task.status === Status.DONE)) {
+        functionality.status = Status.DONE;
+      } else if (functionalityTasks.some(task => task.status === Status.DOING)) {
+        functionality.status = Status.DOING;
+      } else {
+        functionality.status = Status.TODO;
+      }
+    }
+  }
 }
 

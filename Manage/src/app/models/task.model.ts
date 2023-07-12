@@ -6,7 +6,7 @@ export interface Task {
     description: string;
     priority: string;
     functionality: Functionality;
-    estimatedTime: number;
+    estimatedTime?: string;
     status: Status;
     addedAt: Date;
     startedAt?: Date;
