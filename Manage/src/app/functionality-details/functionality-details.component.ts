@@ -16,7 +16,7 @@ export class FunctionalityDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private dataService: DataService) { }
 
   ngOnInit(): void {
-    const functionalityName = this.route.snapshot.paramMap.get('name');
+    const functionalityName = this.route.snapshot.paramMap.get('functionalityName');
     if (functionalityName !== null) {
       this.functionality = this.dataService.getFunctionality(functionalityName);
       this.tasks = this.dataService.getTasks(functionalityName);

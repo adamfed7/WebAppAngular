@@ -3,9 +3,9 @@
 
 <h2>Funkcjonalności:</h2>
 <div *ngFor="let functionality of functionalities">
-  <h3><a [routerLink]="['/projects', project?.name, 'functionalities', functionality.name]">{{ functionality.name }}</a></h3>
-  <p>{{ functionality.description }}</p>
-  <p>Priorytet: {{ functionality.priority }}</p>
+  <h3><li><a [routerLink]="['/projects', project?.name, 'functionalities', functionality.name]">{{ functionality.name }}</a></li></h3>
+  <p><b>Opis: </b>{{ functionality.description }}</p>
+  <p><b>Priorytet: </b>{{ functionality.priority }}</p>
 </div>
 
   

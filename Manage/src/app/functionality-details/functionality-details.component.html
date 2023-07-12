@@ -1,12 +1,15 @@
-<div *ngIf="functionality">
-    <h2>{{ functionality.name }}</h2>
-    <p>{{ functionality.description }}</p>
-    
-    <h3>Zadania:</h3>
-    <ul>
-      <li *ngFor="let task of tasks">
-        {{ task.name }}
-      </li>
-    </ul>
-  </div>
+<div *ngFor="let task of tasks" >
+  <h3>
+    <a [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'tasks', task.name]">
+      {{task.name}}
+    </a>
+  </h3>
+    <p><b>Opis:</b> {{ functionality?.description}}</p>
+    <p><b>Priorytet:</b> {{ functionality?.priority }}</p>
+    <p><b>Status:</b> {{ functionality?.status }}</p>
+    <p><b>Projekt:</b> {{ functionality?.project?.name }}</p>
+    <p><b>Użytkownik:</b> {{ functionality?.user?.firstName }} {{ functionality?.user?.lastName }}</p>
+  
+</div>
+
   
