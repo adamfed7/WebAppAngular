@@ -11,6 +11,9 @@
     <p><b>Projekt:</b> {{ task.functionality.project.name }}</p>
     <p><b>Użytkownik:</b> {{ task.user.firstName }} {{ task.user.lastName }}</p>
 </div>
+<a [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'add-task']">
+  Dodaj zadanie
+</a>
 
 
   

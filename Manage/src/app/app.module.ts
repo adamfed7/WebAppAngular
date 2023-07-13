@@ -8,6 +8,7 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 import { FunctionalityDetailsComponent } from './functionality-details/functionality-details.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProjectsComponent,
     ProjectDetailsComponent,
     FunctionalityDetailsComponent,
-    TaskDetailsComponent
+    TaskDetailsComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,

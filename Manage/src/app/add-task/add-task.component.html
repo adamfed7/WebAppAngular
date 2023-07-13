@@ -1,0 +1,18 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name</label>
+  <input type="text" id="name" formControlName="name">
+    <label>
+      Description:
+      <input type="text" formControlName="description">
+    </label>
+    <label>
+      Priority:
+      <input type="text" formControlName="priority">
+    </label>
+    <label>
+      Estimated Time:
+      <input type="text" formControlName="estimatedTime">
+    </label>
+    <button type="submit">Add Task</button>
+  </form>
+  

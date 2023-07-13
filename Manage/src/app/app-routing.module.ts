@@ -4,6 +4,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { FunctionalityDetailsComponent } from './functionality-details/functionality-details.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/projects', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'projects/:projectName', component: ProjectDetailsComponent },
   { path: 'projects/:projectName/functionalities/:functionalityName', component: FunctionalityDetailsComponent },
   { path: 'projects/:projectName/functionalities/:functionalityName/tasks/:taskName', component: TaskDetailsComponent },
+  { path: 'projects/:projectName/functionalities/:functionalityName/add-task', component: AddTaskComponent },
 ];
 
 @NgModule({

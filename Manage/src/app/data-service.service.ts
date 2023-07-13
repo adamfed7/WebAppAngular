@@ -120,6 +120,10 @@ export class DataService {
 
   constructor() {}
 
+  getUser(): User{
+    return this.user;
+  }
+
   getProjects(): Project[] {
     return this.projects;
   }
@@ -148,6 +152,8 @@ export class DataService {
     }
 }
 
+
+
   
   getTask(name: string): Task | undefined {
     return this.tasks.find((task) => task.name === name);
@@ -155,6 +161,10 @@ export class DataService {
   
   getTasks(functionalityName: string): Task[] {
     return this.tasks.filter((task) => task.functionality.name === functionalityName);
+  }
+
+  addTask(task: Task): void {
+    this.tasks.push(task);
   }
 
   updateTask(name: string, newData: Task): void {
@@ -165,7 +175,7 @@ export class DataService {
   
       const functionality = this.tasks[taskIndex].functionality;
       const functionalityTasks = this.tasks.filter(task => task.functionality === functionality);
-      
+
       if (functionalityTasks.every(task => task.status === Status.DONE)) {
         functionality.status = Status.DONE;
       } else if (functionalityTasks.some(task => task.status === Status.DOING)) {
