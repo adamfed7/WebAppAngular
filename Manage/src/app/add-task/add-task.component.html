@@ -5,10 +5,12 @@
       Description:
       <input type="text" formControlName="description">
     </label>
-    <label>
-      Priority:
-      <input type="text" formControlName="priority">
-    </label>
+    <label for="priority">Priorytet</label>
+    <select id="priority" class="form-control" formControlName="priority">
+      <option value="Niski">Niski</option>
+      <option value="Średni">Średni</option>
+      <option value="Wysoki">Wysoki</option>
+    </select>
     <label>
       Estimated Time:
       <input type="text" formControlName="estimatedTime">

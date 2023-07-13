@@ -11,32 +11,10 @@
     <p><strong>End Date:</strong> {{task.finishedAt | date}}</p>
     <p><strong>User Responsible:</strong> {{task.user.firstName}} {{task.user.lastName}}</p>
 
-    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
-        <label>
-          Name:
-          <input type="text" formControlName="name">
-        </label>
-        <label>
-          Description:
-          <input type="text" formControlName="description">
-        </label>
-        <label>
-          Priority:
-          <input type="text" formControlName="priority">
-        </label>
-        <label>
-          Estimated Time:
-          <input type="text" formControlName="estimatedTime">
-        </label>
-        <label>
-          Status:
-          <select formControlName="status">
-            <option *ngFor="let status of ['TODO', 'DOING', 'DONE']" [value]="status">
-              {{status}}
-            </option>
-          </select>
-        </label>
-        <button type="submit">Update Task</button>
-      </form>
-</div>
+    <button routerLink="/edit-task/{{task.name}}">Edytuj</button>
+
+    <button (click)="deleteTask()">Usuń zadanie</button>
+  </div>
+ 
+
   

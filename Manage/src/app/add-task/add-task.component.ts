@@ -4,6 +4,7 @@ import { DataService } from '../data-service.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Task } from '../models/task.model';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-task',
@@ -24,6 +25,7 @@ export class AddTaskComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -54,5 +56,6 @@ export class AddTaskComponent implements OnInit {
     };
     this.dataService.addTask(sanitizedData as Task);
     this.taskForm.reset();
+    this.router.navigate(['/projects', this.functionality!.project.name, 'functionalities', this.functionality!.name]);
   }
 }

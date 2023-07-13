@@ -16,15 +16,14 @@ export class ProjectDetailsComponent implements OnInit {
   constructor(
     private dataService: DataService,
     private route: ActivatedRoute,
-    
-  ) {}
+
+  ) { }
 
   ngOnInit(): void {
     const projectName = this.route.snapshot.paramMap.get('projectName');
     if (projectName !== null) {
       this.project = this.dataService.getProject(projectName);
       this.functionalities = this.dataService.getFunctionalities(projectName);
-      console.log(this.project, this.functionalities);
     }
   }
 }

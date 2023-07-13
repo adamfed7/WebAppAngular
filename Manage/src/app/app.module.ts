@@ -9,6 +9,7 @@ import { FunctionalityDetailsComponent } from './functionality-details/functiona
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddTaskComponent } from './add-task/add-task.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AddTaskComponent } from './add-task/add-task.component';
     ProjectDetailsComponent,
     FunctionalityDetailsComponent,
     TaskDetailsComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,
