@@ -1,1 +1,37 @@
-p { text-indent: 40px; }
+p {
+  text-indent: 40px;
+}
+.track {
+  display: flex;
+  h2 {
+    margin-right: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: rgb(255, 244, 244);
+    background-color: rgb(44, 181, 185);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  a:hover {
+    color: rgb(245, 245, 245);
+    background-color: rgb(70, 104, 219);
+    padding: 4px 9px;
+    border-radius: 10px;
+  }
+}
+h2:first-child {
+  text-align: center;
+}
+button {
+  margin-right: 10px;
+}
+.center {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+.buttons {
+  text-align: right;
+}

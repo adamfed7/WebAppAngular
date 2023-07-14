@@ -1,19 +1,47 @@
-<h2> Functionality details</h2>
-<div *ngFor="let task of tasks" >
-  <h3>
-    <a [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'tasks', task.name]">
-      {{task.name}}
-    </a>
-  </h3>
-    <p><b>Opis:</b> {{ task.description }}</p>
-    <p><b>Priorytet:</b> {{ task.priority }}</p>
-    <p><b>Status:</b> {{ task.status }}</p>
-    <p><b>Projekt:</b> {{ task.functionality.project.name }}</p>
-    <p><b>Użytkownik:</b> {{ task.user.firstName }} {{ task.user.lastName }}</p>
+<div class="track">
+  <h2><a [routerLink]="['/projects']">Lista projektów</a> ></h2>
+  <h2><a [routerLink]="['/projects', functionality?.project?.name]">{{ functionality?.project?.name }}</a></h2>
 </div>
-<a [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'add-task']">
+
+
+<h2> Szczegóły: {{ functionality?.name }}</h2>
+<p><b>Opis: </b>{{ functionality?.description }}</p>
+<p><b>Priorytet: </b>{{ functionality?.priority }}</p>
+<p><b>Projekt: </b>{{ functionality?.project?.name }}</p>
+<p><b>Użytkownik: </b>{{ functionality?.user?.firstName}} {{ functionality?.user?.lastName}}</p>
+<p><b>Status: </b>{{ functionality?.status }}</p>
+
+<h3>Zadania: </h3>
+<div *ngFor="let task of tasks">
+  <div class="taskItem">
+    <div>
+      <h3>
+        <a
+          [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'tasks', task.name]">
+          {{task.name}}
+        </a>
+      </h3>
+    </div>
+    <div>
+      <p><b>Priorytet:</b> {{ task.priority }}</p>
+    </div>
+    <div>
+      <p><b>Status:</b> {{ task.status }}</p>
+    </div>
+    <div>
+      <p><b>Użytkownik:</b> {{ task.user.firstName}} {{ task.user.lastName}}</p>
+    </div>
+
+    <div>
+      <button
+        [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'tasks', task.name]">Szczegóły</button>
+      <button routerLink="/edit-task/{{task.name}}">Edytuj</button>
+      <button>Usuń</button>
+    </div>
+
+  </div>
+</div>
+<button class="addTask"
+  [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'add-task']">
   Dodaj zadanie
-</a>
-
-
-  
+</button>

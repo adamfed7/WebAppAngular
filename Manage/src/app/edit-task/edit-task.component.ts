@@ -73,14 +73,14 @@ export class EditTaskComponent implements OnInit {
       this.task?.name,
     ]);
 
-    const allDone = this.tasks.every((task) => task.status === Status.DONE);
-    console.log(this.functionality?.name)
-
-    if (allDone) {
-
+    if (!this.tasks.length) {
+      this.functionality!.status = Status.TODO;
+    } else if (this.tasks.every(task => task.status === Status.DONE)) {
       this.functionality!.status = Status.DONE;
-    } else {
+    } else if (this.tasks.some(task => task.status === Status.DOING || task.status === Status.DONE)) {
       this.functionality!.status = Status.DOING;
+    } else {
+      this.functionality!.status = Status.TODO;
     }
 
     this.dataService.updateFunctionality(

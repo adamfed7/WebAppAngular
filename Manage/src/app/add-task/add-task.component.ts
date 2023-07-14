@@ -20,15 +20,19 @@ export class AddTaskComponent implements OnInit {
     description: new FormControl(''),
     priority: new FormControl(''),
     estimatedTime: new FormControl(''),
+    status: new FormControl(''),
   });
 
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService,
     private router: Router,
-  ) {}
+  ) { }
+
+
 
   ngOnInit(): void {
+
     const projectName = this.route.snapshot.paramMap.get('projectName');
     const functionalityName =
       this.route.snapshot.paramMap.get('functionalityName');
@@ -54,8 +58,11 @@ export class AddTaskComponent implements OnInit {
       user: this.dataService.getUser(),
       addedAt: new Date(),
     };
+
     this.dataService.addTask(sanitizedData as Task);
     this.taskForm.reset();
     this.router.navigate(['/projects', this.functionality!.project.name, 'functionalities', this.functionality!.name]);
+
+
   }
 }

@@ -1,20 +1,30 @@
-<h2> Task details</h2>
-<div *ngIf="task">
+<div class="track">
+  <h2><a [routerLink]="['/projects']">Lista projektów</a> > </h2>
+  <h2><a [routerLink]="['/projects', task?.functionality?.project?.name]">{{ task?.functionality?.project?.name }}</a> >
+  </h2>
+  <h2><a
+      [routerLink]="['/projects', task?.functionality?.project?.name, 'functionalities', task?.functionality?.name]">{{ task?.functionality?.name }}</a>
+  </h2>
+</div>
+<div class="center">
+
+  <div *ngIf="task">
+    <h2> Szczegóły zadania:</h2>
     <h2>{{task.name}}</h2>
-    <p><strong>Description:</strong> {{task.description}}</p>
-    <p><strong>Priority:</strong> {{task.priority}}</p>
-    <p><strong>Functionality:</strong> {{task.functionality.name}}</p>
-    <p><strong>Estimated Time:</strong> {{task.estimatedTime}} hours</p>
+    <p><strong>Opis:</strong> {{task.description}}</p>
+    <p><strong>Priorytet:</strong> {{task.priority}}</p>
+    <p><strong>Funkcjonalność:</strong> {{task.functionality.name}}</p>
+    <p><strong>Szacowany:</strong> {{task.estimatedTime}} godz.</p>
     <p><strong>Status:</strong> {{task.status}}</p>
-    <p><strong>Added Date:</strong> {{task.addedAt | date}}</p>
-    <p><strong>Start Date:</strong> {{task.startedAt| date}}</p>
-    <p><strong>End Date:</strong> {{task.finishedAt | date}}</p>
-    <p><strong>User Responsible:</strong> {{task.user.firstName}} {{task.user.lastName}}</p>
+    <p><strong>Data dodania:</strong> {{task.addedAt | date}}</p>
+    <p><strong>Użytkownik:</strong> {{task.user.firstName}} {{task.user.lastName}}</p>
 
-    <button routerLink="/edit-task/{{task.name}}">Edytuj</button>
+    <div class="buttons">
+      <button
+        [routerLink]="['/projects', task.functionality.project.name, 'functionalities', task.functionality.name]">Wróć</button>
+      <button routerLink="/edit-task/{{task.name}}">Edytuj</button>
+      <button (click)="deleteTask()">Usuń zadanie</button>
+    </div>
 
-    <button (click)="deleteTask()">Usuń zadanie</button>
   </div>
- 
-
-  
+</div>
