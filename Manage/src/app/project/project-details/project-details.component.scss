@@ -37,9 +37,9 @@ button {
     justify-content: left;
   }
 }
-.addFunc {
+
+.buttons {
   margin-top: 20px;
-  margin-left: 150px;
-  text-align: right;
-  float: right;
+  display: flex;
+  justify-content: space-between;
 }

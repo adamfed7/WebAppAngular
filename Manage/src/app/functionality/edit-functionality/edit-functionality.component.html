@@ -1,1 +1,32 @@
-<p>edit-functionality works!</p>
+<h2>Edytowanie funkcjonalności</h2>
+
+<div class="edit-func">
+
+  <form class="form-container" [formGroup]="functionalityForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name"><b>Nazwa zadania</b></label>
+      <input id="name" type="text" class="form-control" formControlName="name">
+    </div>
+
+    <div class="form-group" nth-child="2">
+      <label for="description"><b>Opis</b></label>
+      <textarea id="description" class="form-control" formControlName="description" rows="5"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="priority"><b>Priorytet:</b></label>
+      <select id="priority" class="form-control" formControlName="priority">
+        <option value="Niski">Niski</option>
+        <option value="Średni">Średni</option>
+        <option value="Wysoki">Wysoki</option>
+      </select>
+    </div>
+
+
+    <div class="buttons">
+      <button [routerLink]="['/projects', functionality?.project?.name]">Wróć</button>
+      <button type="submit">Zapisz</button>
+    </div>
+
+  </form>
+</div>

@@ -25,11 +25,15 @@
     </div>
     <div>
       <button [routerLink]="['/projects', project?.name, 'functionalities', functionality.name]">Szczegóły</button>
-      <button>Edytuj</button>
-      <button>Usuń</button>
+      <button
+        [routerLink]="['/projects', project?.name, 'functionalities', functionality.name, 'edit-functionality']">Edytuj</button>
+      <button (click)="deleteFunctionality(functionality.name)">Usuń</button>
 
     </div>
 
   </div>
 </div>
-<button class="addFunc" [routerLink]="['/projects', project!.name, 'add-functionality']">Dodaj funkcjonalność</button>
+<div class="buttons">
+  <button [routerLink]="['/projects']">Wróć</button>
+  <button class="addFunc" [routerLink]="['/projects', project!.name, 'add-functionality']">Dodaj funkcjonalność</button>
+</div>

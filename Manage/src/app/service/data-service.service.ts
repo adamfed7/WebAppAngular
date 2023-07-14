@@ -167,6 +167,18 @@ export class DataService {
       console.error(`Functionality with name ${name} not found`);
     }
   }
+  deleteFunctionality(functionalityName: string): void {
+    this.tasks = this.tasks.filter(task => task.functionality.name !== functionalityName);
+
+    const functionalityIndex = this.functionalities.findIndex(func => func.name === functionalityName);
+
+    if (functionalityIndex !== -1) {
+      this.functionalities.splice(functionalityIndex, 1);
+    }
+  }
+
+
+
 
   // TASK
   getTask(name: string): Task | undefined {

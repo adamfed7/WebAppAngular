@@ -26,4 +26,11 @@ export class ProjectDetailsComponent implements OnInit {
       this.functionalities = this.dataService.getFunctionalities(projectName);
     }
   }
+  deleteFunctionality(functionalityName: string): void {
+    if (window.confirm('Czy na pewno chcesz usunąć tę funkcjonalność? To również usunie wszystkie powiązane zadania.')) {
+      this.dataService.deleteFunctionality(functionalityName);
+      this.functionalities = this.functionalities?.filter(f => f.name !== functionalityName);
+    }
+  }
+
 }
