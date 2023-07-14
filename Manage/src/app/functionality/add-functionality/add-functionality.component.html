@@ -1,10 +1,8 @@
-<h2>Dodawanie zadania</h2>
-
-<div class="add-task">
-
-  <form class="form-container" [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+<h2>Dodawanie funkcjonalności</h2>
+<div class="add-func">
+  <form class="form-container" [formGroup]="functionalityForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="name"><b>Nazwa zadania</b></label>
+      <label for="name"><b>Nazwa funkcjonalności:</b></label>
       <input id="name" type="text" class="form-control" formControlName="name">
     </div>
 
@@ -21,19 +19,9 @@
         <option value="Wysoki">Wysoki</option>
       </select>
     </div>
-
-    <div class="form-group">
-      <label for="estimatedTime"><b>Szacowany czas:</b></label>
-      <input id="estimatedTime" type="number" class="form-control" formControlName="estimatedTime">
-    </div>
-
-
-
     <div class="buttons">
-      <button
-        [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'tasks']">Wróć</button>
-      <button type="submit">Dodaj zadanie</button>
+      <button [routerLink]="['/projects', project?.name]">Wróć</button>
+      <button type="submit">Dodaj funkcjonalność</button>
     </div>
-
   </form>
 </div>

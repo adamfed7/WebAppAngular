@@ -6,15 +6,17 @@ import { FunctionalityDetailsComponent } from './functionality/functionality-det
 import { TaskDetailsComponent } from './task/task-details/task-details.component';
 import { AddTaskComponent } from './task/add-task/add-task.component';
 import { EditTaskComponent } from './task/edit-task/edit-task.component';
+import { AddFunctionalityComponent } from './functionality/add-functionality/add-functionality.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/projects', pathMatch: 'full' },
   { path: 'projects', component: ProjectsComponent },
   { path: 'projects/:projectName', component: ProjectDetailsComponent },
+  { path: 'projects/:projectName/add-functionality', component: AddFunctionalityComponent },
   { path: 'projects/:projectName/functionalities/:functionalityName', component: FunctionalityDetailsComponent },
   { path: 'projects/:projectName/functionalities/:functionalityName/tasks/:taskName', component: TaskDetailsComponent },
   { path: 'projects/:projectName/functionalities/:functionalityName/add-task', component: AddTaskComponent },
-  { path: 'edit-task/:taskName', component: EditTaskComponent },
+  { path: 'projects/:projectName/functionalities/:functionalityName/tasks/:taskName/edit-task', component: EditTaskComponent },
 ];
 
 @NgModule({

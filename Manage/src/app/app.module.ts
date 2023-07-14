@@ -10,6 +10,8 @@ import { TaskDetailsComponent } from './task/task-details/task-details.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddTaskComponent } from './task/add-task/add-task.component';
 import { EditTaskComponent } from './task/edit-task/edit-task.component';
+import { AddFunctionalityComponent } from './functionality/add-functionality/add-functionality.component';
+import { EditFunctionalityComponent } from './functionality/edit-functionality/edit-functionality.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { EditTaskComponent } from './task/edit-task/edit-task.component';
     FunctionalityDetailsComponent,
     TaskDetailsComponent,
     AddTaskComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    AddFunctionalityComponent,
+    EditFunctionalityComponent
   ],
   imports: [
     BrowserModule,

@@ -21,15 +21,15 @@
       <p><b>Status: </b>{{ functionality.status }}</p>
     </div>
     <div>
-      <p><b>Użytkownik: </b>{{ functionality.status }}</p>
+      <p><b>Użytkownik: </b>{{ functionality.user.firstName}} {{ functionality.user.lastName}}</p>
     </div>
     <div>
-      <button>Szczegóły</button>
+      <button [routerLink]="['/projects', project?.name, 'functionalities', functionality.name]">Szczegóły</button>
       <button>Edytuj</button>
       <button>Usuń</button>
 
     </div>
 
   </div>
-
 </div>
+<button class="addFunc" [routerLink]="['/projects', project!.name, 'add-functionality']">Dodaj funkcjonalność</button>

@@ -35,13 +35,17 @@
     <div>
       <button
         [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'tasks', task.name]">Szczegóły</button>
-      <button routerLink="/edit-task/{{task.name}}">Edytuj</button>
+      <button
+        [routerLink]="['/projects', task.functionality.project.name, 'functionalities', task.functionality.name, 'tasks', task.name, 'edit-task']">Edytuj</button>
       <button (click)="deleteTask(task.name)">Usuń zadanie</button>
     </div>
 
   </div>
 </div>
-<button class="addTask"
-  [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'add-task']">
-  Dodaj zadanie
-</button>
+<div class="buttons">
+  <button [routerLink]="['/projects', functionality?.project?.name]">Wróć</button>
+  <button class="addTask"
+    [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'add-task']">
+    Dodaj zadanie
+  </button>
+</div>

@@ -13,7 +13,7 @@ export class DataService {
   private projects: Project[] = [
     {
       name: 'Projekt Angular',
-      description: 'To bedzie projekt na zaliczenie',
+      description: 'Prosta aplikacja webowa oparta na frameworku Angular.',
     },
   ];
 
@@ -126,10 +126,12 @@ export class DataService {
 
   constructor() { }
 
+  // USER
   getUser(): User {
     return this.user;
   }
 
+  // PROJECT
   getProjects(): Project[] {
     return this.projects;
   }
@@ -138,6 +140,7 @@ export class DataService {
     return this.projects.find((project) => project.name === name);
   }
 
+  // FUNCTIONALITY
   getFunctionalities(projectName: string): Functionality[] {
     return this.functionalities.filter(
       (func) => func.project.name === projectName
@@ -148,6 +151,9 @@ export class DataService {
     return this.functionalities.find(
       (functionality) => functionality.name === name
     );
+  }
+  addFunctionality(functionality: Functionality): void {
+    this.functionalities.push(functionality);
   }
 
   updateFunctionality(name: string, updatedFunctionality: Functionality): void {
@@ -162,6 +168,7 @@ export class DataService {
     }
   }
 
+  // TASK
   getTask(name: string): Task | undefined {
     return this.tasks.find((task) => task.name === name);
   }

@@ -1,6 +1,7 @@
 p {
   text-indent: 40px;
 }
+
 .track {
   display: flex;
   h2 {
@@ -35,4 +36,10 @@ button {
   > div:first-child {
     justify-content: left;
   }
+}
+.addFunc {
+  margin-top: 20px;
+  margin-left: 150px;
+  text-align: right;
+  float: right;
 }

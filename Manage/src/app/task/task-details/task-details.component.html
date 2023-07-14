@@ -22,7 +22,8 @@
     <div class="buttons">
       <button
         [routerLink]="['/projects', task.functionality.project.name, 'functionalities', task.functionality.name]">Wróć</button>
-      <button routerLink="/edit-task/{{task.name}}">Edytuj</button>
+      <button
+        [routerLink]="['/projects', task.functionality.project.name, 'functionalities', task.functionality.name, 'tasks', task.name, 'edit-task']">Edytuj</button>
       <button (click)="deleteTask()">Usuń zadanie</button>
     </div>
 
