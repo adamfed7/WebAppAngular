@@ -4,6 +4,7 @@ import { Functionality, Status } from '../models/functionality.model';
 import { Task } from '../models/task.model';
 import { User } from '../models/user.model';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -177,9 +178,6 @@ export class DataService {
     }
   }
 
-
-
-
   // TASK
   getTask(name: string): Task | undefined {
     return this.tasks.find((task) => task.name === name);
@@ -191,16 +189,25 @@ export class DataService {
     );
   }
 
+  getTasksByStatus(functionalityName: string, status: Status): Task[] {
+    const functionality = this.getFunctionality(functionalityName);
+    const tasks = this.getTasks(functionalityName);
+    if (functionality) {
+      return tasks.filter(task => task.status === status);
+    }
+    return [];
+  }
+
   addTask(task: Task): void {
     this.tasks.push(task);
   }
 
   updateTask(taskName: string, updatedTask: Partial<Task>) {
-
     const taskIndex = this.tasks.findIndex((t) => t.name === taskName);
     if (taskIndex > -1) {
       const task = this.tasks[taskIndex];
       if (task) {
+        task.name = updatedTask.name!;
         task.status = updatedTask.status!;
         task.description = updatedTask.description!;
         task.estimatedTime = updatedTask.estimatedTime!;
@@ -221,14 +228,13 @@ export class DataService {
           task.functionality.status = Status.DOING;
         }
       }
-
     }
   }
+
   removeTask(taskName: string): void {
     const index = this.tasks.findIndex((t) => t.name === taskName);
     if (index !== -1) {
       this.tasks.splice(index, 1);
     }
   }
-
 }

@@ -1,6 +1,9 @@
 p {
   text-indent: 40px;
 }
+.taskT {
+  margin-top: 30px;
+}
 .track {
   display: flex;
   h2 {
@@ -31,6 +34,11 @@ button {
     flex: 1 1 20%;
     align-items: center;
     justify-content: center;
+    > h3 {
+      > a {
+        text-decoration: none;
+      }
+    }
   }
   > div:first-child {
     justify-content: left;
@@ -40,4 +48,36 @@ button {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+}
+.kanban-board {
+  margin-top: 30px;
+  display: flex;
+}
+.task-column {
+  width: 33%;
+  text-align: center;
+  border-radius: 5px;
+}
+.task-column:first-child {
+  background-color: rgb(109, 202, 171);
+  margin-right: 5px;
+}
+.task-column:nth-child(2) {
+  background-color: rgb(61, 196, 196);
+  margin-right: 5px;
+}
+.task-column:last-child {
+  background-color: rgb(206, 179, 146);
+}
+.task {
+  cursor: pointer;
+}
+.cdk-drag-preview {
+  border: 2px solid #ccc;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  background-color: #fff;
+  color: #000;
+  position: relative;
+  z-index: 1000;
 }

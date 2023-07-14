@@ -11,7 +11,21 @@
 <p><b>Użytkownik: </b>{{ functionality?.user?.firstName}} {{ functionality?.user?.lastName}}</p>
 <p><b>Status: </b>{{ functionality?.status }}</p>
 
-<h3>Zadania: </h3>
+
+<div class="kanban-board">
+  <div class="task-column" *ngFor="let status of statusList; let i = index">
+    <h2>{{ status }}</h2>
+    <div cdkDropList [id]="status + i" [cdkDropListData]="getTaskArray(status)"
+      [cdkDropListConnectedTo]="getConnectedList()" class="task-list" (cdkDropListDropped)="drop($event)"
+      #taskList="cdkDropList">
+
+      <div class="task" *ngFor="let task of getTaskArray(status)" cdkDrag>{{ task.name }}</div>
+
+    </div>
+  </div>
+</div>
+
+<h2 class="taskT">Zadania:</h2>
 <div *ngFor="let task of tasks">
   <div class="taskItem">
     <div>

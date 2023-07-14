@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0 20px;
+  font-family: "Arial", sans-serif;
+  background-color: azure;
+}
+h2,
+h3 {
+  font-weight: bold;
+}
