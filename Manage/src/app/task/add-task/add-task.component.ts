@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Functionality, Status } from '../models/functionality.model';
-import { DataService } from '../data-service.service';
+import { Functionality, Status } from '../../models/functionality.model';
+import { DataService } from '../../service/data-service.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Task } from '../models/task.model';
+import { Task } from '../../models/task.model';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 

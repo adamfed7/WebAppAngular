@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { DataService } from '../data-service.service';
+import { DataService } from '../../service/data-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Task } from '../models/task.model';
-import { Status } from '../models/functionality.model';
-import { User } from '../models/user.model';
+import { Task } from '../../models/task.model';
+import { Status } from '../../models/functionality.model';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-edit-task',

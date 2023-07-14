@@ -36,7 +36,7 @@
       <button
         [routerLink]="['/projects', functionality?.project?.name, 'functionalities', functionality?.name, 'tasks', task.name]">Szczegóły</button>
       <button routerLink="/edit-task/{{task.name}}">Edytuj</button>
-      <button>Usuń</button>
+      <button (click)="deleteTask(task.name)">Usuń zadanie</button>
     </div>
 
   </div>

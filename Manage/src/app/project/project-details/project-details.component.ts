@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../data-service.service';
-import { Project } from '../models/project.model';
-import { Functionality } from '../models/functionality.model';
+import { DataService } from '../../service/data-service.service';
+import { Project } from '../../models/project.model';
+import { Functionality } from '../../models/functionality.model';
 
 @Component({
   selector: 'app-project-details',

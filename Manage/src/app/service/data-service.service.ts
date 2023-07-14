@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Project } from './models/project.model';
-import { Functionality, Status } from './models/functionality.model';
-import { Task } from './models/task.model';
-import { User } from './models/user.model';
+import { Project } from '../models/project.model';
+import { Functionality, Status } from '../models/functionality.model';
+import { Task } from '../models/task.model';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -205,11 +205,11 @@ export class DataService {
 
     }
   }
-
   removeTask(taskName: string): void {
     const index = this.tasks.findIndex((t) => t.name === taskName);
     if (index !== -1) {
       this.tasks.splice(index, 1);
     }
   }
+
 }

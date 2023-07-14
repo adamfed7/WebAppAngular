@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { Task } from '../models/task.model';
-import { DataService } from '../data-service.service';
+import { Task } from '../../models/task.model';
+import { DataService } from '../../service/data-service.service';
 import { ActivatedRoute, Route } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Status } from '../models/functionality.model';
+import { Status } from '../../models/functionality.model';
 
 @Component({
   selector: 'app-task-details',
@@ -17,7 +17,7 @@ export class TaskDetailsComponent {
     private dataService: DataService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   taskForm = new FormGroup({
     name: new FormControl('', Validators.required),
@@ -49,7 +49,7 @@ export class TaskDetailsComponent {
     });
   }
 
-  
+
   deleteTask(): void {
     if (this.task) {
       this.dataService.removeTask(this.task.name);
